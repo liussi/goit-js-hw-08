@@ -12,10 +12,11 @@ formEl.addEventListener("submit", onFormSubmit);
 
 
 const STORAGE_KEY = 'feedback-form-state';
-const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 
 function saveValue(event){
+    const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)|| "{}");
+
     const formData = {...savedData, [event.target.name]:event.target.value};
     // formData[event.target.name] = event.target.value;
     localStorage.setItem(STORAGE_KEY,JSON.stringify(formData)); 
